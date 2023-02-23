@@ -1,0 +1,8 @@
+useRandomSeedSet = false
+sameRandomSeedForEachUser = false
+pathChoice = randomturn
+pathLengthSet = 400
+trackingSpaceDirPath = TrackingSpaces/Separate3/
+trialsCount = 20
+redirectorSet = SeparateSpace
+resetterSet = SeparateSpace

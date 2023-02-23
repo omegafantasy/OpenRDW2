@@ -1,0 +1,6 @@
+pathChoice = filepath
+waypointDirPath = WaypointFiles
+trackingSpaceDirPath = TrackingSpaces/SingleSquare/
+trialsCount = 2
+redirectorSet = ThomasAPF
+resetterSet = R2G

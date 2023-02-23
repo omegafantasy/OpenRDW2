@@ -1,0 +1,480 @@
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 369218486
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 338336648
+newUser
+end
+
+redirector =  S2O
+resetter =  TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 241471205
+newUser
+end
+
+redirector =  S2O
+resetter =  TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 621121463
+newUser
+end
+
+redirector =  ZigZag
+resetter =  FreezeTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 644693606
+newUser
+end
+
+redirector =  ZigZag
+resetter =  FreezeTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 164252016
+newUser
+end
+
+redirector =  ThomasAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 1111700031
+newUser
+end
+
+redirector =  ThomasAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 2024995221
+newUser
+end
+
+redirector =  MessingerAPF
+resetter =  SFR2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 1274559088
+newUser
+end
+
+redirector =  MessingerAPF
+resetter =  SFR2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 1142377821
+newUser
+end
+
+redirector =  DynamicAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 1919312560
+newUser
+end
+
+redirector =  DynamicAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 1433872543
+newUser
+end
+
+redirector =  DeepLearning
+resetter =  MR2C
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 664762412
+newUser
+end
+
+redirector =  DeepLearning
+resetter =  MR2C
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 104134664
+newUser
+end
+
+redirector =  PassiveHapticAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 514815397
+newUser
+end
+
+redirector =  PassiveHapticAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+pathLength = 100
+randomSeed = 439532993
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 1002419776
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 412260004
+newUser
+end
+
+redirector =  S2O
+resetter =  TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 54541413
+newUser
+end
+
+redirector =  S2O
+resetter =  TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 940095106
+newUser
+end
+
+redirector =  ZigZag
+resetter =  FreezeTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 176012907
+newUser
+end
+
+redirector =  ZigZag
+resetter =  FreezeTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 889908723
+newUser
+end
+
+redirector =  ThomasAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 20990437
+newUser
+end
+
+redirector =  ThomasAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 1562484258
+newUser
+end
+
+redirector =  MessingerAPF
+resetter =  SFR2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 910964264
+newUser
+end
+
+redirector =  MessingerAPF
+resetter =  SFR2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 880210269
+newUser
+end
+
+redirector =  DynamicAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 1625383113
+newUser
+end
+
+redirector =  DynamicAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 211632957
+newUser
+end
+
+redirector =  DeepLearning
+resetter =  MR2C
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 286392358
+newUser
+end
+
+redirector =  DeepLearning
+resetter =  MR2C
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 1001505802
+newUser
+end
+
+redirector =  PassiveHapticAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 958573914
+newUser
+end
+
+redirector =  PassiveHapticAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+pathLength = 100
+randomSeed = 345863986
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 6755778
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 893307273
+newUser
+end
+
+redirector =  S2O
+resetter =  TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 724599532
+newUser
+end
+
+redirector =  S2O
+resetter =  TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1184605732
+newUser
+end
+
+redirector =  ZigZag
+resetter =  FreezeTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 392933714
+newUser
+end
+
+redirector =  ZigZag
+resetter =  FreezeTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1379547919
+newUser
+end
+
+redirector =  ThomasAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1660235959
+newUser
+end
+
+redirector =  ThomasAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1245627373
+newUser
+end
+
+redirector =  MessingerAPF
+resetter =  SFR2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 529111324
+newUser
+end
+
+redirector =  MessingerAPF
+resetter =  SFR2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1112124308
+newUser
+end
+
+redirector =  DynamicAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1951861428
+newUser
+end
+
+redirector =  DynamicAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1925451120
+newUser
+end
+
+redirector =  DeepLearning
+resetter =  MR2C
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 75841794
+newUser
+end
+
+redirector =  DeepLearning
+resetter =  MR2C
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 1351608361
+newUser
+end
+
+redirector =  PassiveHapticAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 101601154
+newUser
+end
+
+redirector =  PassiveHapticAPF
+resetter =  R2G
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+pathLength = 100
+randomSeed = 428515084
+newUser
+end
+

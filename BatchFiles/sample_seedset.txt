@@ -1,0 +1,9 @@
+useRandomSeedSet = true
+randomSeedSet = 23, 29
+sameRandomSeedForEachUser = true
+pathChoice = randomturn
+pathLengthSet = 10, 20
+trackingSpaceDirPath = TrackingSpaces/SingleSquare/
+trialsCount = 1
+redirectorSet = ThomasAPF, S2C
+resetterSet = R2G, TwoOneTurn

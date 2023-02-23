@@ -1,0 +1,8 @@
+useRandomSeedSet = false
+sameRandomSeedForEachUser = false
+pathChoice = randomturn
+pathLengthSet = 100
+trackingSpaceDirPath = TrackingSpaces/SingleSquare/
+trialsCount = 2
+redirectorSet =  S2C, S2O, ZigZag, ThomasAPF, MessingerAPF, DynamicAPF, DeepLearning, PassiveHapticAPF
+resetterSet = TwoOneTurn, TwoOneTurn, FreezeTurn, R2G, SFR2G, R2G, MR2C, R2G

@@ -1,0 +1,7 @@
+*.vscode
+.plastic
+*.csproj
+*.sln
+*.conf
+.vsconfig
+*.vrmanifest

@@ -1,0 +1,9 @@
+useRandomSeedSet = true
+randomSeedSet = 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
+sameRandomSeedForEachUser = true
+pathChoice = randomturn
+pathLengthSet = 400
+trackingSpaceDirPath = TrackingSpaces/Separate3/
+trialsCount = 10
+redirectorSet = SeparateSpace
+resetterSet = SeparateSpace

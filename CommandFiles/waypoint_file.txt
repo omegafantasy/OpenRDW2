@@ -1,0 +1,54 @@
+redirector = ThomasAPF
+resetter = R2G
+pathSeedChoice = filepath
+waypointsFilepath = WaypointFiles\00.txt
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+newUser
+end
+
+redirector = ThomasAPF
+resetter = R2G
+pathSeedChoice = filepath
+waypointsFilepath = WaypointFiles\01.txt
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_four_obstacles.txt
+newUser
+end
+
+redirector = ThomasAPF
+resetter = R2G
+pathSeedChoice = filepath
+waypointsFilepath = WaypointFiles\00.txt
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+newUser
+end
+
+redirector = ThomasAPF
+resetter = R2G
+pathSeedChoice = filepath
+waypointsFilepath = WaypointFiles\01.txt
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_no_obstacle.txt
+newUser
+end
+
+redirector = ThomasAPF
+resetter = R2G
+pathSeedChoice = filepath
+waypointsFilepath = WaypointFiles\00.txt
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+newUser
+end
+
+redirector = ThomasAPF
+resetter = R2G
+pathSeedChoice = filepath
+waypointsFilepath = WaypointFiles\01.txt
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SingleSquare/square_one_obstacle.txt
+newUser
+end
+

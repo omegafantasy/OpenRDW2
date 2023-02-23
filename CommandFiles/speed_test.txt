@@ -1,0 +1,100 @@
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 1597566231
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 495398071
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 146927976
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 1236228585
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 1973718635
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 1549937159
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 1744875758
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 479397295
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 541926988
+newUser
+end
+
+redirector = S2C
+resetter = TwoOneTurn
+pathSeedChoice = randomturn
+trackingSpaceChoice = filepath
+trackingSpaceFilepath = TrackingSpaces/SpeedTest/sample_square.txt
+pathLength = 400
+randomSeed = 293812553
+newUser
+end
+

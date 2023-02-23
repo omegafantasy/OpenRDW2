@@ -1,0 +1,7 @@
+- This is SRP Patch Packages, if you using HDRP or URP, pick the right package and unpack it into your project.
+- Unpacking the SRP packages will replace shaders, materials, and a DemoScene to new ones.
+- Make a backup of the materials before unpacking if you already made some changes to them.
+
+
+
+Support email: sinevfx@gmail.com
