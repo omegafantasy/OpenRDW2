@@ -10,7 +10,7 @@ One of the controllers is an implementation of the paper [Multi-User Redirected 
 
 Most features remain unchanged compared with the original version. For detailed information, please refer to the original repository as well as [its wiki](https://github.com/yaoling1997/OpenRDW/wiki/Introduction) (recommended for advanced usage).
 
-![main](D:\NextOpenRDW\Visuals\main.gif)
+![gif](Visuals/main.gif)
 
 
 
@@ -50,7 +50,7 @@ Implementing a resetter in accordance with the redirector could be done similarl
 
 ### Key Settings in the Editor
 
-![structure](D:\NextOpenRDW\Visuals\structure.PNG)
+![structure](Visuals/structure.PNG)
 
 The ***OpenRDW*** gameobject serves as the main object. The ***Global Configuration*** component of it controls most of the crucial settings for the experiment.
 
@@ -88,7 +88,7 @@ One feature of this OpenRDW version is that it supports experiments in **multipl
 
 A tracking space file sets the physical and virtual spaces, as well as the initial configurations of each user for a simulation experiment. A sample is explained below:
 
-![trackingspacefile](D:\NextOpenRDW\Visuals\trackingspacefile.png)
+![trackingspacefile](Visuals/trackingspacefile.png)
 
 The first line suggests the number of users (or avatars) participating in the experiment.
 
@@ -108,7 +108,7 @@ It would be too annoying to manually run hundreds of experiments for comparing d
 
 A command file may look like this:
 
-<img src="D:\NextOpenRDW\Visuals\commandfile.PNG" alt="commandfile" style="zoom: 80%;" />
+<img src="Visuals/commandfile.PNG" alt="commandfile" style="zoom: 80%;" />
 
 To customize an experiment, several parameters are required. <u>Redirector</u> and <u>resetter</u> decide the controllers, while <u>pathSeedChoice</u> and <u>trackingSpaceChoice</u> decide waypoint patterns and experiment environments. A user is marked by <u>newUser</u> and could have its own <u>randomSeed</u> for its waypoint pattern (optional). These experiments would be run sequentially.
 
@@ -116,7 +116,7 @@ More examples could be found in the `CommandFiles/` directory.
 
 However, writing these command texts manually still poses trouble facing large-scale experiments. This is when a **batch file** comes into play:
 
-<img src="D:\NextOpenRDW\Visuals\batchfile.PNG" alt="batchfile" style="zoom:80%;" />
+<img src="Visuals/batchfile.PNG" alt="batchfile" style="zoom:80%;" />
 
 A batch file may seem similar to a command file in some manners. This time, you need to set a series of values for some crucial parameters instead of one. It could result in **cross-style** experiments, which are suitable for comparing the performance of different controllers in several environments. For example, if repeated trials are required, simply set the <u>trialsCount</u> parameter.
 
