@@ -379,9 +379,8 @@ public class StatisticsLogger : MonoBehaviour
             us.minTranslationGain = Mathf.Min(us.minTranslationGain, g_t);
             us.sumOfVirtualDistanceTravelled += Mathf.Sign(g_t - 1) * translationApplied.magnitude; // if gain is positive, redirection reference moves with the user, thus increasing the virtual displacement, and if negative, decreases
             us.virtualDistanceTravelledSinceLastReset += Mathf.Sign(g_t - 1) * translationApplied.magnitude;
-
-            us.translationGainSamplesBuffer.Add(g_t * globalConfiguration.GetDeltaTime());
-            us.injectedTranslationSamplesBuffer.Add(translationApplied.magnitude * globalConfiguration.GetDeltaTime());
+            us.translationGainSamplesBuffer.Add(g_t);
+            us.injectedTranslationSamplesBuffer.Add(translationApplied.magnitude);
         }
     }
 
@@ -394,9 +393,9 @@ public class StatisticsLogger : MonoBehaviour
             us.maxRotationGain = Mathf.Max(us.maxRotationGain, g_r);
             us.minRotationGain = Mathf.Min(us.minRotationGain, g_r);
 
-            us.rotationGainSamplesBuffer.Add(g_r * globalConfiguration.GetDeltaTime());
-            us.injectedRotationFromRotationGainSamplesBuffer.Add(Mathf.Abs(rotationApplied) * globalConfiguration.GetDeltaTime());
-            us.injectedRotationSamplesBuffer.Add(Mathf.Abs(rotationApplied) * globalConfiguration.GetDeltaTime());
+            us.rotationGainSamplesBuffer.Add(g_r);
+            us.injectedRotationFromRotationGainSamplesBuffer.Add(Mathf.Abs(rotationApplied));
+            us.injectedRotationSamplesBuffer.Add(Mathf.Abs(rotationApplied));
         }
     }
 
@@ -409,9 +408,9 @@ public class StatisticsLogger : MonoBehaviour
             us.maxCurvatureGain = Mathf.Max(us.maxCurvatureGain, g_c);
             us.minCurvatureGain = Mathf.Min(us.minCurvatureGain, g_c);
 
-            us.curvatureGainSamplesBuffer.Add(g_c * globalConfiguration.GetDeltaTime());
-            us.injectedRotationFromCurvatureGainSamplesBuffer.Add(Mathf.Abs(rotationApplied) * globalConfiguration.GetDeltaTime());
-            us.injectedRotationSamplesBuffer.Add(Mathf.Abs(rotationApplied) * globalConfiguration.GetDeltaTime());
+            us.curvatureGainSamplesBuffer.Add(g_c);
+            us.injectedRotationFromCurvatureGainSamplesBuffer.Add(Mathf.Abs(rotationApplied));
+            us.injectedRotationSamplesBuffer.Add(Mathf.Abs(rotationApplied));
         }
     }
 
@@ -453,7 +452,7 @@ public class StatisticsLogger : MonoBehaviour
 
             us.userRealPositionSamplesBuffer.Add(Utilities.FlattenedPos2D(rm.currPosReal));
             us.userVirtualPositionSamplesBuffer.Add(Utilities.FlattenedPos2D(rm.currPos));
-            us.distanceToNearestBoundarySamplesBuffer.Add(Utilities.GetNearestDistAndPosToObstacleAndTrackingSpace(globalConfiguration.physicalSpaces, mm.physicalSpaceIndex, rm.currPosReal).Item1);
+            us.distanceToNearestBoundarySamplesBuffer.Add(Utilities.GetNearestDistAndPosToObstacleAndTrackingSpace(globalConfiguration.physicalSpaces, mm.physicalSpaceIndex, Utilities.FlattenedPos2D(rm.currPosReal)).Item1);
         }
     }
 
@@ -465,18 +464,18 @@ public class StatisticsLogger : MonoBehaviour
         {
             GetSampleFromBuffer(ref us.userRealPositionSamples, ref us.userRealPositionSamplesBuffer);
             GetSampleFromBuffer(ref us.userVirtualPositionSamples, ref us.userVirtualPositionSamplesBuffer);
-            GetSampleFromBuffer(ref us.translationGainSamples, ref us.translationGainSamplesBuffer);
+            GetSampleFromBuffer(ref us.translationGainSamples, ref us.translationGainSamplesBuffer, 1);
             GetSampleFromBuffer(ref us.injectedTranslationSamples, ref us.injectedTranslationSamplesBuffer);
-            GetSampleFromBuffer(ref us.rotationGainSamples, ref us.rotationGainSamplesBuffer);
+            GetSampleFromBuffer(ref us.rotationGainSamples, ref us.rotationGainSamplesBuffer, 1);
             GetSampleFromBuffer(ref us.injectedRotationFromRotationGainSamples, ref us.injectedRotationFromRotationGainSamplesBuffer);
-            GetSampleFromBuffer(ref us.curvatureGainSamples, ref us.curvatureGainSamplesBuffer);
+            GetSampleFromBuffer(ref us.curvatureGainSamples, ref us.curvatureGainSamplesBuffer, 0);
             GetSampleFromBuffer(ref us.injectedRotationFromCurvatureGainSamples, ref us.injectedRotationFromCurvatureGainSamplesBuffer);
             GetSampleFromBuffer(ref us.injectedRotationSamples, ref us.injectedRotationSamplesBuffer);
             GetSampleFromBuffer(ref us.distanceToNearestBoundarySamples, ref us.distanceToNearestBoundarySamplesBuffer);
         }
     }
 
-    void GetSampleFromBuffer(ref List<float> samples, ref List<float> buffer, bool verbose = false)
+    void GetSampleFromBuffer(ref List<float> samples, ref List<float> buffer, float defaultVal = 0, bool verbose = false)
     {
         float sampleValue = 0;
         foreach (float bufferValue in buffer)
@@ -485,7 +484,7 @@ public class StatisticsLogger : MonoBehaviour
         }
         //samples.Add(sampleValue / (redirectionManager.GetTime() - lastSamplingTime));
         // OPTIONALLY WE CAN NOT LOG ANYTHING AT ALL IN THIS CASE!
-        samples.Add(buffer.Count != 0 ? sampleValue / buffer.Count : 0);
+        samples.Add(buffer.Count != 0 ? sampleValue / buffer.Count : defaultVal);
         if (verbose)
         {
             print("sampleValue: " + sampleValue);
