@@ -159,6 +159,10 @@ Note that the scripts need to be slightly adjusted in accordance with the change
 
 ### Some Tips
 
+**IMPORTANT: When experimenting in HMD mode, remember to press 'R' to start.**
+
+Experiments can be manually ended by pressing 'Q'.
+
 Running experiments backstage blocks the main UI process to speed up the processing, and you couldn't check how it goes. So it would be better to double-check before running a time-consuming simulation.
 
 **APF-related redirectors may not be robust to the reset buffer**. It is recommended that `RESET_TRIGGER_BUFFER` be set to at least <u>0.4</u> to get rid of malfunctioning. 
