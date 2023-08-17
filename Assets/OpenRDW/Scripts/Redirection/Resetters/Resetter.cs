@@ -68,7 +68,7 @@ public abstract class Resetter : MonoBehaviour
             Vector2 distanceVector = realPos - targetPos;
             arrow.localPosition = new Vector3((distanceVector.x * targetDir.y - distanceVector.y * targetDir.x) * 60f, 50f + (distanceVector.x * targetDir.x + distanceVector.y * targetDir.y) * 60f, 0);
             float deltaAngle = Utilities.GetSignedAngle(realDir, targetDir);
-            arrow.localRotation = Quaternion.Euler(0, 0, -deltaAngle);
+            arrow.localRotation = Quaternion.Euler(0, 0, deltaAngle);
             if (distanceVector.magnitude < 0.2f &&
                 arrow.localRotation.eulerAngles.magnitude < 8.0f)
             { // both position and direction satisfy the requirements, end reset
