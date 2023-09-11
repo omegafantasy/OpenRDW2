@@ -14,6 +14,9 @@ public abstract class Redirector : MonoBehaviour
     [HideInInspector]
     public VisualizationManager visualizationManager;
 
+    Vector3 translation;
+    float rotationInDegrees;
+
     void Awake()
     {
         globalConfiguration = GetComponentInParent<GlobalConfiguration>();
@@ -25,6 +28,16 @@ public abstract class Redirector : MonoBehaviour
     /// <summary>
     /// Applies redirection based on the algorithm.
     /// </summary>
+    public void ClearGains()
+    {
+        translation = Vector3.zero;
+        rotationInDegrees = 0;
+    }
+    public void ApplyGains()
+    {
+        transform.Translate(translation, Space.World);
+        transform.RotateAround(Utilities.FlattenedPos3D(redirectionManager.headTransform.position), Vector3.up, rotationInDegrees);
+    }
     public abstract void InjectRedirection();
 
     protected void SetTranslationGain(float gt)
@@ -32,8 +45,7 @@ public abstract class Redirector : MonoBehaviour
         gt = Mathf.Max(gt, globalConfiguration.MIN_TRANS_GAIN);
         gt = Mathf.Min(gt, globalConfiguration.MAX_TRANS_GAIN);
         redirectionManager.gt = gt;
-        var translation = redirectionManager.deltaPos * (gt - 1);
-        transform.Translate(translation, Space.World);
+        translation = redirectionManager.deltaPos * (gt - 1);
         globalConfiguration.statisticsLogger.Event_Translation_Gain(movementManager.avatarId, gt, translation);
     }
     protected void SetRotationGain(float gr)
@@ -43,14 +55,13 @@ public abstract class Redirector : MonoBehaviour
             gr = Mathf.Max(gr, globalConfiguration.MIN_ROT_GAIN);
             gr = Mathf.Min(gr, globalConfiguration.MAX_ROT_GAIN);
             redirectionManager.gr = gr;
-            var rotationInDegrees = redirectionManager.deltaDir * (gr - 1);
-            transform.RotateAround(Utilities.FlattenedPos3D(redirectionManager.headTransform.position), Vector3.up, rotationInDegrees);
-            GetComponentInChildren<KeyboardController>().SetLastRotation(rotationInDegrees);
-            globalConfiguration.statisticsLogger.Event_Rotation_Gain(movementManager.avatarId, gr, rotationInDegrees);
-        }
-        else
-        {
-            redirectionManager.gr = 1;
+            var rotationInDegreesGR = redirectionManager.deltaDir * (gr - 1);
+            if (Mathf.Abs(rotationInDegreesGR) > Mathf.Abs(rotationInDegrees))
+            {
+                rotationInDegrees = rotationInDegreesGR;
+                GetComponentInChildren<KeyboardController>().SetLastRotation(rotationInDegreesGR);
+            }
+            globalConfiguration.statisticsLogger.Event_Rotation_Gain(movementManager.avatarId, gr, rotationInDegreesGR);
         }
     }
     protected void SetCurvature(float curvature)// positive means turning left
@@ -60,14 +71,13 @@ public abstract class Redirector : MonoBehaviour
             curvature = Mathf.Max(curvature, -1 / globalConfiguration.CURVATURE_RADIUS);
             curvature = Mathf.Min(curvature, 1 / globalConfiguration.CURVATURE_RADIUS);
             redirectionManager.curvature = curvature;
-            var rotationInDegrees = Mathf.Rad2Deg * redirectionManager.deltaPos.magnitude * curvature;
-            transform.RotateAround(Utilities.FlattenedPos3D(redirectionManager.headTransform.position), Vector3.up, rotationInDegrees);
-            GetComponentInChildren<KeyboardController>().SetLastRotation(rotationInDegrees);
-            globalConfiguration.statisticsLogger.Event_Curvature_Gain(movementManager.avatarId, curvature, rotationInDegrees);
-        }
-        else
-        {
-            redirectionManager.curvature = 0;
+            var rotationInDegreesGC = Mathf.Rad2Deg * redirectionManager.deltaPos.magnitude * curvature;
+            if (Mathf.Abs(rotationInDegreesGC) > Mathf.Abs(rotationInDegrees))
+            {
+                rotationInDegrees = rotationInDegreesGC;
+                GetComponentInChildren<KeyboardController>().SetLastRotation(rotationInDegreesGC);
+            }
+            globalConfiguration.statisticsLogger.Event_Curvature_Gain(movementManager.avatarId, curvature, rotationInDegreesGC);
         }
     }
 

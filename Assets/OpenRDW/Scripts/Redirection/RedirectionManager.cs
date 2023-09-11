@@ -417,6 +417,7 @@ public class RedirectionManager : MonoBehaviour
                         inReset = false;
                         if (redirector != null)
                         {
+                            redirector.ClearGains();
                             redirector.InjectRedirection();
                         }
                         EndResetCountDown = EndResetCountDown > 0 ? EndResetCountDown - 1 : 0;
@@ -434,6 +435,7 @@ public class RedirectionManager : MonoBehaviour
             {
                 if (redirector != null)
                 {
+                    redirector.ClearGains();
                     redirector.InjectRedirection();
                 }
                 EndResetCountDown = EndResetCountDown > 0 ? EndResetCountDown - 1 : 0;
@@ -456,6 +458,7 @@ public class RedirectionManager : MonoBehaviour
             {
                 if (redirector != null)
                 {
+                    redirector.ClearGains();
                     redirector.InjectRedirection();
                 }
                 EndResetCountDown = EndResetCountDown > 0 ? EndResetCountDown - 1 : 0;
