@@ -5,3 +5,5 @@
 *.conf
 .vsconfig
 *.vrmanifest
+Temp
+Library

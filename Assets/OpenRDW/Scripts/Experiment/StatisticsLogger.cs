@@ -51,8 +51,8 @@ public class StatisticsLogger : MonoBehaviour
     [Header("Image")]
     [Tooltip("Side resolution of a square image(resolution * resolution)")]
     public int imageResolution;
-    [Tooltip("Side length represent the real world meters")]
-    public int realSideLength;
+    // [Tooltip("Side length represent the real world meters")]
+    private float realSideLength;
     [Tooltip("Border thickness drawn in the image")]
     public int borderThickness;
     [Tooltip("Path thickness drawn in the image")]
@@ -304,6 +304,17 @@ public class StatisticsLogger : MonoBehaviour
             er["g_c_average"] = GetAverageOfAbsoluteValues(us.curvatureGainSamples).ToString();
             er["injected_rotation_from_curvature_gain_average"] = GetAverage(us.injectedRotationFromCurvatureGainSamples).ToString();
             er["injected_rotation_average"] = GetAverage(us.injectedRotationSamples).ToString();
+            var gtChange = new List<float>();
+            var gcChange = new List<float>();
+            for (int j = 0; j < us.translationGainSamples.Count - 1; j++)
+            {
+                gtChange.Add(Mathf.Abs(us.translationGainSamples[j + 1] - us.translationGainSamples[j]));
+                gcChange.Add(Mathf.Abs(us.curvatureGainSamples[j + 1] - us.curvatureGainSamples[j]));
+            }
+            er["g_t_change_max"] = gtChange.Count > 0 ? (gtChange.Max() * samplingFrequency).ToString() : "0";
+            er["g_c_change_max"] = gcChange.Count > 0 ? (gcChange.Max() * samplingFrequency).ToString() : "0";
+            er["g_t_change_average"] = gtChange.Count > 0 ? (GetAverage(gtChange) * samplingFrequency).ToString() : "0";
+            er["g_c_change_average"] = gcChange.Count > 0 ? (GetAverage(gcChange) * samplingFrequency).ToString() : "0";
 
             er["real_position_average"] = GetAverage(us.userRealPositionSamples).ToString();
             er["virtual_position_average"] = GetAverage(us.userVirtualPositionSamples).ToString();
@@ -460,15 +471,16 @@ public class StatisticsLogger : MonoBehaviour
     void GenerateSamplesFromBufferValuesAndClearBuffers()
     {
         //Debug.Log("GenerateSamplesFromBufferValuesAndClearBuffers");
-        foreach (var us in avatarStatistics)
+        for (int i = 0; i < avatarStatistics.Count; i++)
         {
+            var us = avatarStatistics[i];
             GetSampleFromBuffer(ref us.userRealPositionSamples, ref us.userRealPositionSamplesBuffer);
             GetSampleFromBuffer(ref us.userVirtualPositionSamples, ref us.userVirtualPositionSamplesBuffer);
-            GetSampleFromBuffer(ref us.translationGainSamples, ref us.translationGainSamplesBuffer, 1);
+            GetSampleFromBuffer(ref us.translationGainSamples, ref us.translationGainSamplesBuffer, globalConfiguration.redirectedAvatars[i].GetComponent<RedirectionManager>().gt);
             GetSampleFromBuffer(ref us.injectedTranslationSamples, ref us.injectedTranslationSamplesBuffer);
-            GetSampleFromBuffer(ref us.rotationGainSamples, ref us.rotationGainSamplesBuffer, 1);
+            GetSampleFromBuffer(ref us.rotationGainSamples, ref us.rotationGainSamplesBuffer, globalConfiguration.redirectedAvatars[i].GetComponent<RedirectionManager>().gr);
             GetSampleFromBuffer(ref us.injectedRotationFromRotationGainSamples, ref us.injectedRotationFromRotationGainSamplesBuffer);
-            GetSampleFromBuffer(ref us.curvatureGainSamples, ref us.curvatureGainSamplesBuffer, 0);
+            GetSampleFromBuffer(ref us.curvatureGainSamples, ref us.curvatureGainSamplesBuffer, globalConfiguration.redirectedAvatars[i].GetComponent<RedirectionManager>().curvature);
             GetSampleFromBuffer(ref us.injectedRotationFromCurvatureGainSamples, ref us.injectedRotationFromCurvatureGainSamplesBuffer);
             GetSampleFromBuffer(ref us.injectedRotationSamples, ref us.injectedRotationSamplesBuffer);
             GetSampleFromBuffer(ref us.distanceToNearestBoundarySamples, ref us.distanceToNearestBoundarySamplesBuffer);
@@ -740,7 +752,7 @@ public class StatisticsLogger : MonoBehaviour
         if (!Directory.Exists(resultDir))
             Directory.CreateDirectory(resultDir);
         csvWriter = new StreamWriter(resultDir + resultFileName + ".csv");
-        string[] headers = { "trial", "endState", "user", "redirector", "resetCount", "virtualDistance" };
+        string[] headers = { "trial", "endState", "user", "redirector", "resetCount", "virtualDistance", "gtChangeMax", "gcChangeMax", "gtChangeAvg", "gcChangeAvg" };
         for (int i = 0; i < headers.Length; i++)
         {
             if (i < headers.Length - 1)
@@ -768,7 +780,11 @@ public class StatisticsLogger : MonoBehaviour
                     csvWriter.Write(userIndex + ",");
                     csvWriter.Write(experimentResultPerUser["redirector"] + ",");
                     csvWriter.Write(experimentResultPerUser["reset_count"] + ",");
-                    csvWriter.Write(experimentResultPerUser["virtual_way_distance"]);
+                    csvWriter.Write(experimentResultPerUser["sum_virtual_distance_travelled(IN METERS)"] + ",");
+                    csvWriter.Write(experimentResultPerUser["g_t_change_max"] + ",");
+                    csvWriter.Write(experimentResultPerUser["g_c_change_max"] + ",");
+                    csvWriter.Write(experimentResultPerUser["g_t_change_average"] + ",");
+                    csvWriter.Write(experimentResultPerUser["g_c_change_average"]);
                     csvWriter.WriteLine();
                     userIndex++;
                 }
@@ -790,22 +806,32 @@ public class StatisticsLogger : MonoBehaviour
 
         var trackingSpaces = new List<List<Vector2>>();
         var obstaclePolygons = new List<List<Vector2>>();
+        float minx = float.MaxValue, miny = float.MaxValue, maxx = float.MinValue, maxy = float.MinValue;
         foreach (var space in globalConfiguration.physicalSpaces)
         {
             trackingSpaces.Add(space.trackingSpace);
+            foreach (var point in space.trackingSpace)
+            {
+                minx = Mathf.Min(minx, point.x);
+                miny = Mathf.Min(miny, point.y);
+                maxx = Mathf.Max(maxx, point.x);
+                maxy = Mathf.Max(maxy, point.y);
+            }
             foreach (var obstacle in space.obstaclePolygons)
             {
                 obstaclePolygons.Add(obstacle);
             }
         }
+        realSideLength = Mathf.Max(maxx - minx, maxy - miny);
+        Vector2 centerp = new Vector2((minx + maxx) / 2, (miny + maxy) / 2);
         foreach (var trackingSpacePoints in trackingSpaces)
         {
             for (int i = 0; i < trackingSpacePoints.Count; i++)
-                Utilities.DrawLine(texRealPathGraph, trackingSpacePoints[i], trackingSpacePoints[(i + 1) % trackingSpacePoints.Count], realSideLength, borderThickness, trackingSpaceColor);
+                Utilities.DrawLine(texRealPathGraph, trackingSpacePoints[i] - centerp, trackingSpacePoints[(i + 1) % trackingSpacePoints.Count] - centerp, realSideLength, borderThickness, trackingSpaceColor);
         }
 
         foreach (var obstaclePolygon in obstaclePolygons)
-            Utilities.DrawPolygon(texRealPathGraph, obstaclePolygon, realSideLength, borderThickness, obstacleColor);
+            Utilities.DrawPolygon(texRealPathGraph, obstaclePolygon, realSideLength, borderThickness, obstacleColor, centerp);
         //for (int i = 0; i < obstaclePolygon.Count; i++)
         //    Utilities.DrawLine(tex, obstaclePolygon[i], obstaclePolygon[(i + 1) % obstaclePolygon.Count], sideLength, borderThickness, obstacleColor);
         for (int uId = 0; uId < avatarStatistics.Count; uId++)
@@ -819,7 +845,7 @@ public class StatisticsLogger : MonoBehaviour
             {
                 var w = (beginWeight + deltaWeight * i);
                 //Debug.Log("realPosList[i]:" + realPosList[i].ToString("f3"));
-                Utilities.DrawLine(texRealPathGraph, realPosList[i], realPosList[i + 1], realSideLength, pathThickness, w * color + (1 - w) * backgroundColor, (w + deltaWeight) * color + (1 - w - deltaWeight) * backgroundColor);
+                Utilities.DrawLine(texRealPathGraph, realPosList[i] - centerp, realPosList[i + 1] - centerp, realSideLength, pathThickness, w * color + (1 - w) * backgroundColor, (w + deltaWeight) * color + (1 - w - deltaWeight) * backgroundColor);
             }
         }
 

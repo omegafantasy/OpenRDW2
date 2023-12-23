@@ -279,7 +279,7 @@ public static class Utilities
                 t.SetPixel(i, j, c);
         t.Apply();
     }
-    public static void DrawPolygon(Texture2D tex, List<Vector2> polygonPoints, float sideLength, int thickness, Color color)
+    public static void DrawPolygon(Texture2D tex, List<Vector2> polygonPoints, float sideLength, int thickness, Color color, Vector2 offset)
     {
         var pixelPolygonPoints = new List<Vector2>();
         var minX = float.MaxValue;
@@ -288,7 +288,7 @@ public static class Utilities
         var maxY = float.MinValue;
         foreach (var p in polygonPoints)
         {
-            var pixelPos = RealPosToPixelPos(tex, p, sideLength);
+            var pixelPos = RealPosToPixelPos(tex, p - offset, sideLength);
             pixelPolygonPoints.Add(pixelPos);
             minX = Mathf.Min(minX, pixelPos.x);
             maxX = Mathf.Max(maxX, pixelPos.x);
