@@ -28,6 +28,8 @@ public class SeparateSpace_Redirector : Redirector
             float gt = redirectParams.Item3;
             SetTranslationGain(gt);
             SetCurvature(1 / radius);
+
+            ApplyGains();
         }
     }
 

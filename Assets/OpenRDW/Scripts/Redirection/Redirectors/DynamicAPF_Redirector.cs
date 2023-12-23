@@ -340,6 +340,8 @@ public class DynamicAPF_Redirector : APF_Redirector
             SetRotationGain(globalConfiguration.MAX_ROT_GAIN);
         }
         SetCurvature(desiredSteeringDirection * 1 / globalConfiguration.CURVATURE_RADIUS);
+
+        ApplyGains();
     }
 
 

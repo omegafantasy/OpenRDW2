@@ -166,5 +166,7 @@ public class MessingerAPF_Redirector : APF_Redirector
             //g_r = desiredSteeringDirection * Mathf.Max(baseRate * deltaTime, Mathf.Min(Mathf.Abs(deltaDir * redirectionManager.globalConfiguration.MAX_ROT_GAIN), maxRotationFromRotationGain));
         }
         SetTranslationGain(1);
+
+        ApplyGains();
     }
 }

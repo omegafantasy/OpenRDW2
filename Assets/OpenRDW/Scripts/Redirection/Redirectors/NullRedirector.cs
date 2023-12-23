@@ -8,5 +8,7 @@ public class NullRedirector : Redirector
         SetTranslationGain(1);
         SetRotationGain(1);
         SetCurvature(0);
+
+        ApplyGains();
     }
 }

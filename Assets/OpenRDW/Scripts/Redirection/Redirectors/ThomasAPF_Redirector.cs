@@ -106,5 +106,7 @@ public class ThomasAPF_Redirector : APF_Redirector
             //g_r = desiredSteeringDirection * Mathf.Min(Mathf.Abs(deltaDir * globalConfiguration.MAX_ROT_GAIN), maxRotationFromRotationGain);
         }
         SetCurvature(desiredSteeringDirection * 1 / globalConfiguration.CURVATURE_RADIUS);
+
+        ApplyGains();
     }
 }

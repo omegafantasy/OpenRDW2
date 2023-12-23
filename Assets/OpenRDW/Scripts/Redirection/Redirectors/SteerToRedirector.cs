@@ -93,7 +93,9 @@ public abstract class SteerToRedirector : Redirector
         float finalRotation = (1.0f - SMOOTHING_FACTOR) * lastRotationApplied + SMOOTHING_FACTOR * rotationProposed;
         //float finalRotation = rotationProposed;
         lastRotationApplied = finalRotation;
-        
+
         SetRotationGain(1 + finalRotation / Mathf.Max(0.001f, redirectionManager.deltaDir));
+
+        ApplyGains();
     }
 }

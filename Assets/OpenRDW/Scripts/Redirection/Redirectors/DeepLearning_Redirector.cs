@@ -103,6 +103,8 @@ public class DeepLearning_Redirector : Redirector
         SetTranslationGain(g_t);
         SetRotationGain(g_r);
         SetCurvature(g_c);
+
+        ApplyGains();
     }
     public void AddState()
     {

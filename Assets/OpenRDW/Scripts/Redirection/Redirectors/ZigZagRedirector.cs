@@ -76,7 +76,7 @@ public class ZigZagRedirector : Redirector
     void UpdateWaypoint()
     {
         var waypoints = redirectionManager.movementManager.waypoints;
-        var veWaypoints = redirectionManager.movementManager.vePathWaypoints; 
+        var veWaypoints = redirectionManager.movementManager.vePathWaypoints;
         bool userIsNearTarget;
         if (redirectionManager.movementManager.pathSeedChoice == GlobalConfiguration.PathSeedChoice.VEPath)//jon: newly added VEPath
         {
@@ -182,6 +182,8 @@ public class ZigZagRedirector : Redirector
         SetTranslationGain(g_t + 1);
         SetRotationGain(g_r + 1);
         SetCurvature(g_c / Mathf.Rad2Deg);
+
+        ApplyGains();
     }
 
     Transform InstantiateDefaultRealTarget(int targetID, Vector3 position)
