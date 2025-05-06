@@ -10,7 +10,7 @@ This toolkit is an extended version of [OpenRDW](https://github.com/yaoling1997/
 
 In multi-user online VR applications, if everyone is not associated with others, the redirected walking strategy will not differ from single-user strategies. But if users' tasks are correlated, there will be new challenges to redirect users. An ideal online RDW strategy must make the locomotion opportunities of different users equal, regardless of different physical environment layouts. Otherwise, some online VR games, such as the multiplayer game “Red Light, Green Light”, will become unfair and even lose their playability.
 
-This code contains the implementation of the multi-user online RDW controller described in the paper [Multi-User Redirected Walking in Separate Physical Spaces for Online VR Scenarios](https://arxiv.org/abs/2210.05356). This controller is designed for multi-user online VR scenarios and ensures that online users in separate physical spaces have the same number of resets and reset timings while reducing the number of resets for all users.
+This code contains the implementation of the multi-user online RDW controller described in the paper [Multi-User Redirected Walking in Separate Physical Spaces for Online VR Scenarios](https://ieeexplore.ieee.org/document/10058042). This controller is designed for multi-user online VR scenarios and ensures that online users in separate physical spaces have the same number of resets and reset timings while reducing the number of resets for all users.
 
 This code retains most of the features of [OpenRDW], so we also highly recommend reading and using the original [OpenRDW] and [its wiki](https://github.com/yaoling1997/OpenRDW/wiki/Introduction).
 
@@ -188,3 +188,30 @@ This project uses several assets from the [Unity Asset Store](https://assetstore
 - [Video Capture](https://assetstore.unity.com/packages/tools/video/video-capture-75653)
 - [3D Realistic Terrain Free](https://assetstore.unity.com/packages/3d/environments/landscapes/3d-realistic-terrain-free-182593)
 - [Translucent Crystals](https://assetstore.unity.com/packages/3d/environments/fantasy/translucent-crystals-106274)
+
+
+
+### Citation
+
+If you find this project helpful for your research, please consider citing:
+
+```
+S. -Z. Xu, J. -H. Liu, M. Wang, F. -L. Zhang and S. -H. Zhang, "Multi-User Redirected Walking in Separate Physical Spaces for Online VR Scenarios," in IEEE Transactions on Visualization and Computer Graphics, vol. 30, no. 4, pp. 1916-1926, April 2024, doi: 10.1109/TVCG.2023.3251648.
+```
+
+or
+
+```
+@ARTICLE{xu2024multi-user,
+  author={Xu, Sen-Zhe and Liu, Jia-Hong and Wang, Miao and Zhang, Fang-Lue and Zhang, Song-Hai},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Multi-User Redirected Walking in Separate Physical Spaces for Online VR Scenarios}, 
+  year={2024},
+  volume={30},
+  number={4},
+  pages={1916-1926},
+  keywords={Legged locomotion;Space vehicles;Games;Aerospace electronics;Task analysis;Reinforcement learning;Real-time systems;Redirected walking;multi-user;online VR;fairness},
+  doi={10.1109/TVCG.2023.3251648}
+}
+```
+

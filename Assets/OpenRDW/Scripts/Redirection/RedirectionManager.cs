@@ -141,7 +141,7 @@ public class RedirectionManager : MonoBehaviour
         else
         {
             // hide avatar body
-            body.gameObject.SetActive(false);
+            // body.gameObject.SetActive(false);
         }
 
         // Resetter needs ResetTrigger to be initialized before initializing itself
@@ -154,6 +154,14 @@ public class RedirectionManager : MonoBehaviour
         isWalking = false;
         touchWaypoint = false;
     }
+
+    // void Start()
+    // {
+    //     if (globalConfiguration.movementController == GlobalConfiguration.MovementController.HMD)
+    //     {
+    //         body.gameObject.SetActive(false);
+    //     }
+    // }
 
     //modify these trhee functions when adding a new redirector
     public System.Type RedirectorChoiceToRedirector(RedirectorChoice redirectorChoice)
